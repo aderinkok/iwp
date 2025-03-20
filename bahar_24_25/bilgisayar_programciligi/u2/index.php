@@ -36,16 +36,30 @@ if ($ad == "Sare" || $ad="Zeynep") {
 
 /*
  * Yapılacaklar:
- * - Sayı1>sayi2 durumunda eğer sayı2 sayı1 farkı
- * sayı1 den büyükse "fark çok büyük",
- * sayı1'in yarısından büyük ya da sayı1 kadarsa fark normal
- * sayı1 den küçükse fark az yazdıracak şekilde ifadeyi tamamlayınız.
+ * - Sayı1>sayi2 durumunda eğer sayı1 sayı2 farkı
+ * sayı2 den büyükse "fark çok büyük",
+ * sayı2'in yarısından büyük ya da sayı2 kadarsa fark normal
+ * sayı2 den küçükse fark az yazdıracak şekilde ifadeyi tamamlayınız.
  * */
-$deger1 = 5;
+$deger1 = 80;
 $deger2 = 50;
 if($deger1 > $deger2) {
     echo "Sayı 1 sayı 2 den BÜYÜK";
     echo "<br>";
+    $fark = $deger1-$deger2;
+    if($fark>$deger2){
+        echo "Fark çok büyük";
+        echo "<br>";
+    }
+  //elseif($fark>=$deger2/2){
+    elseif($fark<=$deger2 && ($deger2/2)<=$fark){
+        echo "Fark  normal";
+        echo "<br>";
+    }
+    else{
+        echo "Fark çok küçük";
+        echo "<br>";
+    }
 }
 elseif ($deger1 < $deger2) {
     echo "Sayı 1 sayı 2 den KÜÇÜK";
