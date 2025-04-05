@@ -75,6 +75,25 @@ for ($p=1;$p<=10;$p++){
 }
 
 
+$sayac =0;
+$moduAlinacakSayi = 13;
+$ustLimit = 1000;
+
+for($i=1;$i<=$ustLimit;$i++){
+
+    if($sayac==10){
+        break;
+    }
+    if($i==$moduAlinacakSayi**2){
+        continue;
+    }
+    if($i%$moduAlinacakSayi==0 ){
+        echo "$i<br>";
+        $sayac++;
+    }
+}
+
+echo "0-$ustLimit arası $moduAlinacakSayi sayısına bölünebilen $sayac adet sayı bulunmakta.";
 
 
 
