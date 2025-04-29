@@ -42,5 +42,5 @@ selamla("Abdulmelik","Derinkök");
 selamla("Abdulmelik","Derinkök");
 
 
-print_r($_SERVER);
+
 
