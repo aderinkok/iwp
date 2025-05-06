@@ -15,7 +15,7 @@ echo rtrim($str,"World!");
 
 echo "<br>";
 
-print_r(str_split("Merhaba"));
+print_r(str_split("Pazaryeri"));
 
 echo "<br>";
 
@@ -38,7 +38,8 @@ echo "<br>";
 echo rand(5,20);
 
 
-/* 1-99 arası rastgele sayılar üretilecek.
+/*
+1-99 arası rastgele sayılar üretilecek.
 Üretilen her bir değer diziye eklenerek depolanacak.
 Eklenen bir değer tekrar diziye eklenmeyecek.
-Toplamda dizi eleman sayısı 30 olana kadar işlem devam edecek.
+Toplamda dizi eleman sayısı 30 olana kadar işlem devam edecek.*/
