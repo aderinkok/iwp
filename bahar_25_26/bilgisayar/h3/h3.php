@@ -19,10 +19,6 @@ for ($i = 1; $i <= 5; $i++) {
     echo "Sayı: $i <br>"; 
 }
 echo "<br>";
-for ($j =100;$j>=0;$j--) { 
-
-    echo "Sayı: $j <br>"; 
-}
 
 echo "<b>Hatalı For Döngüsü (Sonsuz Döngü):</b><br>";
 /*for ($j = 100; $j<=25; $j-=5){
@@ -58,6 +54,9 @@ echo "<br>";*/
 // Diziler (arrays) ve koleksiyonlar üzerinde dolaşmak için özel olarak tasarlanmıştır. 
 echo "<b>Foreach Döngüsü:</b><br>";
 $renkler = ["kırmızı", "mavi", "yeşil"]; 
+
+
+//foreach ($renkler as $key => $value) { 
 foreach ($renkler as $renk) { 
     echo "Renk: $renk <br>"; 
 }
@@ -87,10 +86,12 @@ for ($i=0;$i<10;$i++){
 // PHP'de String, Sayısal ve Dizi işlemleri için yüzlerce yerleşik (built-in) fonksiyon vardır.
 
 /* --- A. Parametresiz Fonksiyon --- */
+
+
 function selamVer() { 
     echo "Merhaba, PHP!<br>"; 
 }
-selamVer(); // Fonksiyonlar çağrılmadıkça çalıştırılmaz. 
+ selamVer();// Fonksiyonlar çağrılmadıkça çalıştırılmaz. 
 
 /* --- B. Parametre Alan ve Değer Döndüren Fonksiyon --- */
 function topla($a, $b) { 
@@ -133,27 +134,69 @@ echo "Normal fonksiyon ile artan değer: $degerNormal <br><br>"; // Çıktı: 6
 
 /* --- A. İndeksli Diziler --- */
 // Elemanlara yalnızca sayısal anahtarlarla erişilir. Anahtarlar genellikle 0'dan başlar. 
+
 $mevsimler = ["İlkbahar", "Yaz", "Sonbahar", "Kış"]; 
 echo "İlk mevsim: " . $mevsimler[0] . "<br>"; // Çıktı: İlkbahar 
 
 // Diziye yeni eleman ekleme:
 $renkler2 = ["Kırmızı", "Mavi"]; 
 $renkler2[] = "Yeşil"; // Doğrudan sonuna yeni eleman ekler 
+$renkler2[2] = "Sarı"; // Var olan bir indeksi günceller veya yeni bir indeks oluşturur
+echo $renkler2[2];
+
 
 /* --- B. İlişkisel Diziler (Associative Arrays) --- */
 // Anahtarlar (key), string veya sayı olabilen özelleştirilmiş değerlerdir. Veriyi açıklayıcı depolamak için idealdir.
+
 $iliskiselDizi = ["isim" => "Abdulmelik", "soyisim" => "Derinkök", "yas" => 18]; 
+$deneme = ["isim" => "Zeynep","soyisim"=>"Derinkök", "yas"=>3];
 echo "Öğrenci: " . $iliskiselDizi["isim"] . " " . $iliskiselDizi["soyisim"] . "<br>"; 
 
 // İlişkisel diziye yeni eleman ekleme:
 $iliskiselDizi["not"] = 85; // Yeni bir anahtar-değer çifti ekler 
+$deneme["not"]= 90;
 
 /* --- C. Çok Boyutlu Diziler (Multidimensional Arrays) --- */
 // Dizi içinde başka diziler barındıran yapılardır. 
 $sinif = [
-    ["isim" => "Abdulmelik", "yas" => 18], 
+    ["isim" => "Abdulmelik", "yas" => 18],
     ["isim" => "Zeynep", "yas" => 23]      
 ];
 echo "İlk öğrencinin adı: " . $sinif[0]["isim"] . "<br>"; // Çıktı: Abdulmelik
 
+
+$bilgisayar = [ 
+    "bolum"=> "Bilgisayar", 
+    "ogrenciler"=>[
+        ["ad"=> "Abdulmelik", "soyad"=> "Derinkök", "yas"=>18],
+        ["ad"=> "Ali", "soyad"=> "Veli", "yas"=>19],
+        ["ad"=> "Ayşe", "soyad"=> "Demir", "yas"=>20]
+    ]    
+    ];
+
+    echo $bilgisayar["bolum"]."<br>"; 
+    echo $bilgisayar["ogrenciler"][2]["soyad"]."<br>"; 
+
+   /* 
+   
+    1  2  3 
+    4  5  6
+    
+    1 4
+    2 5
+    3 6
+*/
+
+$sayac=1;
+for($i=1;$i<=2;$i++){
+    for($j=1;$j<=4;$j++){
+        
+          echo $sayac." ";
+        
+        
+        $sayac++;
+    }
+    
+    echo "<br>";
+}
 ?>
