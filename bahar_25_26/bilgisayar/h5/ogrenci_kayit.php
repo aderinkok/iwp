@@ -8,19 +8,7 @@ if ($_POST) {
    
     
     if ($bolum != -1) {
-        $host = 'localhost'; // Veritabanı sunucusu
-        $dbname = 'bilgisayar'; // Veritabanı adı
-        $user = 'root'; // Veritabanı kullanıcı adı
-        $pass = ''; // Veritabanı şifresi
-
-        try {
-            $nesne = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-            $nesne->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            $mesaj = "Bağlantı hatası: " . $e->getMessage();
-            $bilgi = true;
-
-        }
+        include "parcalar/db.php";
         try{
         $sql = "INSERT INTO ogrenci (ad,soyad,bolum) VALUES (:isim, :soyisim,:bolum)";
         $stmt = $nesne->prepare($sql);
@@ -40,15 +28,7 @@ if ($_POST) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="tr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <title>Document</title>
-</head>
+<?php  include "parcalar/head.php"; ?>
 
 <body>
     <div class="container">

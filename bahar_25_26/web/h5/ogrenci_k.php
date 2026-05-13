@@ -29,14 +29,13 @@ if ($_POST) {
 }
 }
 ?>
-   
-          <?php include 'parcalar/head.php'; ?>
-          <?php include 'parcalar/ust.php'; ?>
-          
-          
-          
-            <?php include 'parcalar/sol.php'; ?>
-            <div class="col-md-6">
+<?php include 'parcalar/head.php'; ?>
+<body>
+    <div class="container mt-4">
+        <div class="row">
+    <?php include 'parcalar/ust.php'; ?>
+    <?php include 'parcalar/sol.php'; ?>
+    <div class="col-md-6">
                 <h2>Öğrenci Kayıt Formu</h2>
                 <p>Lütfen öğrenci bilgilerinizi eksiksiz olarak doldurun.</p>
 
@@ -66,8 +65,9 @@ if ($_POST) {
 
                 </form>
             </div>
-              <?php include 'parcalar/sag.php'; ?>
+     <?php include 'parcalar/sag.php'; ?>
         </div>
-     
+       
     </div>
+    
     <?php include 'parcalar/footer.php'; ?>
