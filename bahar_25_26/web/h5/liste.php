@@ -1,31 +1,36 @@
-<?php include 'parcalar/db.php'; ?>
-<?php 
-$bilgi=false;
-$users=[];
+<?php
+include "parcalar/db.php";
+$bilgi = false;
+$users = [];
+$baslik = "Öğrenci Listesi";
+ if(isset($_GET['mesaj']) && isset($_GET['bilgi'])){
+        $mesaj = $_GET['mesaj'];
+        $bilgi = $_GET['bilgi'] === 'true' ? true : false;
+    } 
+try{
+    $sql = "SELECT * FROM ogrenci";
+    $stmt = $nesne->query($sql);
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-try {
- $sql = "SELECT * FROM ogrenci";
- $stmt = $pdo->query($sql);
- $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}catch(PDOException $e){
+    $mesaj = "Veri çekme hatası: " . $e->getMessage();
+    $bilgi = true;
+}
 
-}
-catch(PDOException $e){
-    $bilgi=true;
-    $mesaj="DB Error: " . $e->getMessage();
-}
 
 
 ?>
-<?php include 'parcalar/head.php'; ?>
-<body>
-    <div class="container mt-4">
-        <div class="row">
-    <?php include 'parcalar/ust.php'; ?>
-    <?php include 'parcalar/sol.php'; ?>
-    <div class="col-md-6">  
-        <h2>Öğrenci listeleme</h2>
-        <?php if(count($users)>0){ ?>
-         <table class="table">
+
+<?php include "parcalar/head.php"; ?>
+<?php include "parcalar/body.php"; ?>
+<?php include "parcalar/nav.php"; ?>
+<?php include "parcalar/sol.php"; ?>
+
+<div class="col-6">
+    <?php
+    if(count($users) > 0){
+    ?>
+<table class="table table-responsive">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -35,12 +40,12 @@ catch(PDOException $e){
       <th scope="col">Vize</th>
       <th scope="col">Ödev</th>
       <th scope="col">Final</th>
-      <th scope="col">Bütünleme</th>
-      <th scope="col">İşlem</th>
+      <th scope="col">Ortalama</th>
     </tr>
   </thead>
   <tbody>
-    <?php foreach($users as $user){ ?>
+    <?php 
+    foreach ($users as $user) { ?>
     <tr>
       <th scope="row"><?php echo $user['id']; ?></th>
       <td><?php echo $user['ad']; ?></td>
@@ -51,21 +56,21 @@ catch(PDOException $e){
       <td><?php echo $user['final']; ?></td>
       <td><?php echo $user['butunleme']; ?></td>
         <td>
-            <a href="ogrenci_duzenle.php?id=<?php echo $user['id']; ?>" class="btn btn-sm btn-primary">Düzenle</a>
+            <a href="ogrenci_guncelleme.php?id=<?php echo $user['id']; ?>" class="btn btn-sm btn-primary">Düzenle</a>
             <a href="ogrenci_sil.php?id=<?php echo $user['id']; ?>" class="btn btn-sm btn-danger"  >Sil</a>
         </td>
         </tr>
-    <?php } ?>
-</tbody>
+        
+    <?php }
+    ?>
+   
+  </tbody>
 </table>
-<?php }else{ 
-    echo "<div class=\"alert alert-info\" role=\"alert\">Kayıt bulunamadı.</div>";
-} ?>
-  
-    </div>
-      
-        </div>
-      
-    </div>
-    
-    <?php include 'parcalar/footer.php'; ?>
+<?php
+    }else{
+        echo "<div class=\"alert alert-info mt-3\" role=\"alert\"> Kayıt bulunamadı.</div>";
+    }
+    ?>
+</div>
+
+<?php include "parcalar/footer.php"; ?>

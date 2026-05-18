@@ -1,1 +1,1 @@
- <div class="col-md-3">Sağ alan</div>
+<div class="col-3">Sağ alan</div>

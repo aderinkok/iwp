@@ -1,7 +1,7 @@
 <?php
 
 $host = 'localhost'; // Veritabanı sunucusu
-$dbname = 'web'; // Veritabanı adı
+$dbname = 'bilgisayar'; // Veritabanı adı
 $user = 'root'; // Veritabanı kullanıcı adı
 $pass = ''; // Veritabanı şifresi
 
@@ -15,3 +15,9 @@ echo "Bağlantı başarılı!";
 }catch(PDOException $e){
         echo "Bağlantı hatası: ". $e->getMessage();
 }
+
+
+
+
+
+
