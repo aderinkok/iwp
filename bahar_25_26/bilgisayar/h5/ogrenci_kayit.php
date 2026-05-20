@@ -1,6 +1,7 @@
 <?php
  $bilgi= false;
  $mesaj = "";
+ $baslik = "Yeni Öğrenci Kayıt";
 if ($_POST) {
     $ad = $_POST['ad'];
     $soyad = $_POST['soyad'];
@@ -29,19 +30,10 @@ if ($_POST) {
 ?>
 
 <?php  include "parcalar/head.php"; ?>
-
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Öğrenci Kayıt Formu</h1>
-
-                <?php
-                if($bilgi){
-                  echo "<div class=\"alert alert-info mt-3\" role=\"alert\">".$mesaj."</div>";
-                          }?>
-            </div>
-            <div class="col-md-3">Sol alan</div>
+<?php include "parcalar/head.php"; ?>
+<?php include "parcalar/body.php"; ?>
+<?php include "parcalar/nav.php"; ?>
+<?php include "parcalar/sol.php"; ?>
             <div class="col-md-6">
                 <form action="" method="post">
                     <div class="form-group">

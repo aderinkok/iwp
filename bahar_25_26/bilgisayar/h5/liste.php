@@ -2,6 +2,12 @@
 include "parcalar/db.php";
 $bilgi = false;
 $users = [];
+$baslik = "Öğrenci Listesi";
+
+if($_GET){
+    $mesaj = isset($_GET['mesaj']) ? $_GET['mesaj'] : "";
+    $bilgi = isset($_GET['bilgi']) ? $_GET['bilgi'] : false;
+}
 try{
     $sql = "SELECT * FROM ogrenci";
     $stmt = $nesne->query($sql);
